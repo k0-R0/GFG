@@ -1,4 +1,5 @@
 package GFG_DSA;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class GFG_Hashing {
@@ -353,6 +354,22 @@ public class GFG_Hashing {
 
         return res;
 
+    }
+    public ArrayList<Integer> nkoccurences(int[] arr, int k)
+    {
+        int n = arr.length;
+        ArrayList<Integer> res = new ArrayList<>();
+        HashMap<Integer,Integer> map = new HashMap<>(n);
+        for(int i:arr)
+        {
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> h:map.entrySet())
+        {
+            if(h.getValue()>(n/k))
+                res.add(h.getValue());
+        }
+        return res;
     }
 
     public static void main(String[] args) {
